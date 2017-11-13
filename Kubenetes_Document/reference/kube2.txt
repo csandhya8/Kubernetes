@@ -1,0 +1,54 @@
+from Bharat Sharma to Everyone:
+yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+from Bharat Sharma to Everyone:
+systemctl status kubelet
+from Bharat Sharma to Everyone:
+journalctl -xe
+from Bharat Sharma to Everyone:
+systemctl status kubelet
+from Bharat Sharma to Everyone:
+--cgroup-driver=systemd
+from Bharat Sharma to Everyone:
+systemctl daemon-reload n
+from Bharat Sharma to Everyone:
+tail -f /var/log/messages
+from Bharat Sharma to Everyone:
+kubeadm init --apiserver-advertise-address=<your MasterIp > --apiserver-bind-port=8080
+kubeadm init --apiserver-advertise-address=<your MasterIp > --apiserver-bind-port=8080
+kubeadm init --apiserver-advertise-address=<your MasterIp > --apiserver-bind-port=8080
+kubeadm init --apiserver-advertise-address=<your MasterIp > --apiserver-bind-port=8080
+kubeadm init --apiserver-advertise-address=<your MasterIp > --apiserver-bind-port=8080
+from Bharat Sharma to Everyone:
+hostname -i
+from Bharat Sharma to Everyone:
+vi /etc/sysctl.conf
+from Bharat Sharma to Everyone:
+kubeadm init --apiserver-advertise-address=<your MasterIp > --apiserver-bind-port=8080 --skip-preflight-checks
+from Bharat Sharma to Everyone:
+useradd -aG enabler
+from Bharat Sharma to Everyone:
+1.) create a user in linux ( useradd or usermod command )
+from Bharat Sharma to Everyone:
+useradd enabler
+from Bharat Sharma to Everyone:
+passwd enabler
+from Bharat Sharma to Everyone:
+useradd -d /home/enabler enabler
+from Bharat Sharma to Everyone:
+cat /etc/passwd | grep enabler
+from Bharat Sharma to Everyone:
+usermod -aG enabler enabler
+from Bharat Sharma to Everyone:
+sudo su - enabler
+from Bharat Sharma to Everyone:
+pwd
+from Bharat Sharma to Everyone:
+history
+from Bharat Sharma to Everyone:
+bridge-nf-call-iptables =1
+from Bharat Sharma to Everyone:
+vi /etc/sysctl.conf
+from Bharat Sharma to Everyone:
+bridge-nf-call-iptables =1 
+from Bharat Sharma to Everyone:
+reboot

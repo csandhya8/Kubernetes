@@ -1,0 +1,107 @@
+[kubernetes]
+name=Kubernetes
+baseurl=http://yum.kubernetes.io/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+       https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+	   
+	   kubeadm init --apiserver-advertise-address=54.157.217.29 --apiserver-bind-port=8080
+	   
+	   
+	   sudo yum-config-manager\--add-repo \<DOCKER-EE-URL>/docker-ee.repo
+	   
+	   
+	   sudo yum-config-manager \--add-repo \ https://store.docker.com/my-content /docker-ee.repo
+	   kubelet: error: failed to run Kubelet: failed to create kubelet: misconfiguration: kubelet cgroup driver: "cgroupfs" is different from docker cgroup driver: "systemd"
+	   
+	   --cgroup-driver=systemd
+	   
+	   
+	   ------------------------------
+	   [root@ip-172-30-3-188 kubelet.service.d]# kubeadm init --apiserver-advertise-address=172.30.3.188 --apiserver-bind-port=8080 --skip-preflight-checks
+[kubeadm] WARNING: kubeadm is in beta, please do not use it for production clusters.
+[init] Using Kubernetes version: v1.6.0
+[init] Using Authorization mode: RBAC
+[preflight] Skipping pre-flight checks
+[preflight] Starting the kubelet service
+[certificates] Generated CA certificate and key.
+[certificates] Generated API server certificate and key.
+[certificates] API Server serving cert is signed for DNS names [ip-172-30-3-188.ec2.internal kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 172.30.3.188]
+[certificates] Generated API server kubelet client certificate and key.
+[certificates] Generated service account token signing key and public key.
+[certificates] Generated front-proxy CA certificate and key.
+[certificates] Generated front-proxy client certificate and key.
+[certificates] Valid certificates and keys now exist in "/etc/kubernetes/pki"
+[kubeconfig] Wrote KubeConfig file to disk: "/etc/kubernetes/controller-manager.conf"
+[kubeconfig] Wrote KubeConfig file to disk: "/etc/kubernetes/scheduler.conf"
+[kubeconfig] Wrote KubeConfig file to disk: "/etc/kubernetes/admin.conf"
+[kubeconfig] Wrote KubeConfig file to disk: "/etc/kubernetes/kubelet.conf"
+[apiclient] Created API client, waiting for the control plane to become ready
+[apiclient] All control plane components are healthy after 30.724808 seconds
+[apiclient] Waiting for at least one node to register
+[apiclient] First node has registered after 3.149049 seconds
+[token] Using token: d85288.05ad7f8d66622b7a
+[apiconfig] Created RBAC rules
+[addons] Created essential addon: kube-proxy
+[addons] Created essential addon: kube-dns
+
+Your Kubernetes master has initialized successfully!
+
+To start using your cluster, you need to run (as a regular user):
+
+  sudo cp /etc/kubernetes/admin.conf $HOME/
+  sudo chown $(id -u):$(id -g) $HOME/admin.conf
+  export KUBECONFIG=$HOME/admin.conf
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  http://kubernetes.io/docs/admin/addons/
+
+You can now join any number of machines by running the following on each node
+as root:
+
+  kubeadm join --token d85288.05ad7f8d66622b7a 172.30.3.188:8080
+
+[root@ip-172-30-3-188 kubelet.service.d]#
+
+
+
+-----------------------------
+kubeadm join --token d85288.05ad7f8d66622b7a 172.30.3.188:8080
+------------------
+ 1  clear
+    2  useradd -aG enabler
+    3  useradd enabler
+    4  passwd enabler
+    5  useradd -d /home/enabler enabler
+    6  usermod -d /home/enabler enabler
+    7  cat /etc/passwd | grep enabler
+    8  usermod -aG enabler enabler
+    9  sudo su - enabler
+   10  history
+
+   
+   
+   
+    1  hostname -i
+    2  kubeadm init --apiserver-advertise-address=172.30.3.188 --apiserver-bind-port=8080
+    3  systemctl enable docker.service
+    4  kubeadm reset
+    5  kubeadm init --apiserver-advertise-address=172.30.3.188 --apiserver-bind-port=8080
+    6  vi /etc/sysctl.conf
+    7  systemctl status kubelet
+    8  cd /etc//systemd/system/kubelet.service.d
+    9  ls
+   10  vi 10-kubeadm.conf
+   11  vi 10-kubeadm.conf
+   12  kubeadm reset
+   13  kubeadm init --apiserver-advertise-address=172.30.3.188 --apiserver-bind-port=8080
+   14* kubeadm reset
+   15  kubeadm init --apiserver-advertise-address=172.30.3.188 --apiserver-bind-port=8080 --skip-preflight-checks
+   16  history
+
+   
+   
+   

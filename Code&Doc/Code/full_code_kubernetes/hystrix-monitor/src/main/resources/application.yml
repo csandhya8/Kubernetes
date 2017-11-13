@@ -1,0 +1,12 @@
+---
+server:
+  port: 8989
+
+
+turbine:
+  aggregator:
+    clusterConfig: DB-OPERATION-SERVICE
+  appConfig: DB-OPERATION-SERVICE
+
+logging:
+  level: INFO

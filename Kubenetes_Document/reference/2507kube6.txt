@@ -1,0 +1,104 @@
+Master
+
+
+ cd /etc/yum.repos.d
+    2  vi kubernetes.repo
+    3  yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+    4  systemctl enable kubelet
+    5  systemctl start kubelet
+    6  unset http_proxy
+    7  unset https_proxy
+    8  sudo yum install policycoreutils-python
+    9  yum install wget
+   10  wget http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+   11  sudo rpm -i container-selinux-2.9-4.el7.noarch.rpm
+   12  sudo yum install -y yum-utils
+   13  sudo yum install -y device-mapper-persistent-data lvm2
+   14  sudo yum-config-manager --enable rhel-7-server-extras-rpms
+   15  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   16  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   17  sudo yum makecache fast
+   18  sudo yum -y install docker-ce
+   19  sudo systemctl start docker
+   20  docker ps
+   21  kubeadm init --apiserver-advertise-address=172.30.3.116 --apiserver-bind-port=8080
+   22  sudo cp /etc/kubernetes/admin.conf $HOME/
+   23  sudo chown $(id -u):$(id -g) $HOME/admin.conf
+   24  export KUBECONFIG=$HOME/admin.conf
+   25  kubectl get nodes
+   26  kubectl get nodes
+   27  kubectl get nodes
+   28  kubectl get nodes
+   29  kubectl get nodes
+   30  kubectl get nodes
+   31  kubectl get nodes
+   32  kubectl get nodes
+   33  kubectl get nodes
+   34  kubectl get nodes
+   35  kubectl get nodes
+   36  kubectl get nodes
+   37  wget https://git.io/weave-kube-1.6
+   38  wget https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+   39  kubectl apply -f weave-kube-1.6
+   40  kubectl apply -f kubernetes-dashboard.yaml
+   41  kubectl proxy --api-prefix=/ --address='172.30.3.116' --accept-hosts='172.30.3.116' --port=7080 &
+   42  kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
+   43  kubectl get nodes
+   44  kubectl run eureka-server --image=techmid/eureka-server --port=8761
+   45  kubectl expose deployment eureka-server --name=eureka-server
+   46  kubectl get pods
+   47  kubectl get pods --output=wide
+   48  kubectl describe services eureka-server
+   49  curl http://10.32.0.4:8761
+   50  clear
+   51  curl http://172.30.3.116:7080/ui
+   52  kubectl get nodes
+   53  kubectl describe services eureka-server
+   54  curl http://10.32.0.4:8761
+   55  kubectl get services eureka-server
+   56  kubectl get services
+   57  kubectl get pods
+   58  kubectl get deploy
+   59  kubectl cluster-info
+   60  clear
+   61  wget https://git.io/weave-kube-1.6
+   62  ls
+   63  cd weave-kube-1.6
+   64  vi weave-kube-1.6
+   65  kubectl get pods --namespace=kube-system
+   66  kubectl get services --namespace=kube-system
+   67  kubectl describe pod kubernetes-dashboard-2177499306-v758x
+   68  kubectl describe pod kubernetes-dashboard-2177499306-v758x --namespace=kube-system
+   69  wget https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+   70  kubectl delete -f kubernetes-dashboard.yaml
+   71  vi kubernetes-dashboard.yaml
+   72  kubectl apply -f kubernetes-dashboard.yaml
+   73  kubectl get deploy --namespace=kube-system
+   74  kubectl get pods --namespace=kube-system
+   75  kubectl get service --namespace=kube-system
+   76  clear
+   77  kubectl get pods --namespace=kube-system
+   78  kubectl describe pod kubernetes-dashboard-2039414953-938hn
+   79  kubectl describe pod kubernetes-dashboard-2039414953-938hn --namespace=kube-system
+   80  kubectl get pods --output=wide
+   81  kubectl get services eureka-server
+   82  kubectl delete service eureka-server
+   83  kubectl expose --health
+   84  kubectl expose --help
+   85  kubectl expose deployment eureka-server --name=eureka-server --type=NodePort --port=8761 --target-port=8761
+   86  kubectl get services eureka-server
+   87  ps -ef | grep api-server
+   88  kubectl get pods --namespace=kube-system
+   89  kubectl describe pod kube-apiserver-ip-172-30-3-116.ec2.internal
+   90  kubectl describe pod kube-apiserver-ip-172-30-3-116.ec2.internal --namespace=kube-system
+   91  history
+
+
+
+--------
+
+make changes in
+vi kubernetes-dashboard.yaml version 
+
+
+

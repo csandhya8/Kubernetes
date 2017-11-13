@@ -1,0 +1,132 @@
+from Amandeep Singh to Everyone:
+kubectl taint nodes --all node-role.kubernetes.io/master-
+from Sandhya Chandrasekaran to Everyone:
+techmid/authservice
+from Amandeep Singh to Everyone:
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: authservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authservice   
+  template:
+    metadata:
+      labels:
+        app: authservice
+    spec:
+      containers:
+      - name: authservice-container
+        image: techmid/authservice
+        ports:
+        - containerPort: 8001
+from Amandeep Singh to Everyone:
+current-context
+from Amandeep Singh to Everyone:
+kind: Service
+apiVersion: v1
+metadata:
+  name: authservice  
+spec:
+  selector:
+    app: authservice
+  ports:
+    - name: http
+      port: 8001
+      targetPort: 8001
+      protocol: TCP
+  type: ClusterIP
+from Amandeep Singh to Everyone:
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: catalogueservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalogueservice   
+  template:
+    metadata:
+      labels:
+        app: catalogueservice
+    spec:
+      containers:
+      - name: catalogueservice-container
+        image: techmid/catalogueservice
+        ports:
+        - containerPort: 8022
+from Amandeep Singh to Everyone:
+kind: Service
+apiVersion: v1
+metadata:
+  name: catalogueservice  
+spec:
+  selector:
+    app: catalogueservice
+  ports:
+    - name: http
+      port: 8022
+      targetPort: 8022
+      protocol: TCP
+  type: ClusterIP
+from Sandhya Chandrasekaran to Everyone:
+techmid/onlineshopping
+from Amandeep Singh to Everyone:
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: onlineshoppingcartservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: onlineshoppingcartservice   
+  template:
+    metadata:
+      labels:
+        app: onlineshoppingcartservice
+    spec:
+      containers:
+      - name: onlineshoppingcartservice-container
+        image: techmid/onlineshopping
+        ports:
+        - containerPort: 8000
+
+from Amandeep Singh to Everyone:
+kind: Service
+apiVersion: v1
+metadata:
+  name: onlineshoppingcartservice  
+spec:
+  selector:
+    app: onlineshoppingcartservice
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
+  type: ClusterIP
+from Amandeep Singh to Everyone:
+kind: Service
+apiVersion: v1
+metadata:
+  name: onlineshoppingcartservice  
+spec:
+  selector:
+    app: onlineshoppingcartservice
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
+  type: NodePort
+from Amandeep Singh to Everyone:
+curl --data "param1=value1&param2=value2" https://example.com/resource.cgi
+
+
+export JAVA_HOME=/home/ec2-user/sample/jdk1.8.0_141/
+export M2_HOME=/home/ec2-user/sample/apache-maven-3.3.9
+export PATH=$PATH:/home/ec2-user/sample/jdk1.8.0_141/bin/:/home/ec2-user/sample/apache-maven-3.3.9/bin

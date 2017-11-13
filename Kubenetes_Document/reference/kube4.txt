@@ -1,0 +1,276 @@
+ cd /etc/yum.repos.d
+    2  vi kubernetes.repo
+    3  yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+    4  systemctl enable kubelet
+    5  systemctl start kubelet
+    6  unset http_proxy
+    7  unset https_proxy
+    8  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+    9  yum install docker
+   10  yum install docker.io
+   11  sudo yum -y install docker-ee
+   12  sudo sh -c 'echo "https://store.docker.com/my-content" > /etc/yum/vars/dockerurl'
+   13  sudo sh -c 'echo "7.3" > /etc/yum/vars/dockerosversion'
+   14  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+   15  sudo yum-config-manager --enable rhel-7-server-extras-rpms
+   16  sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+   17  sudo yum-config-manager \--add-repo \ https://store.docker.com/my-content /docker-ee.repo
+   18  sudo yum makecache fast
+   19   sudo yum -y install docker-ee
+   20  yum list docker-ee.x86_64  --showduplicates | sort -r
+   21  sudo yum -y install docker-ee-7.3
+   22  yum install docker
+   23  service docker start
+   24  docker images
+   25  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+   26  systemctl enable docker.service
+   27  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+   28  vi /etc/sysctl.conf
+   29  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+   30  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080 --skip-preflight-checks
+   31  vi /etc/sysctl.conf
+   32  cd /etc//systemd/system/kubelet.service.d
+   33  ls
+   34  vi 10-kubeadm.conf
+   35  kubeadm reset
+   36  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080 --skip-preflight-checks
+   37  systemctl daemon-reload
+   38  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080 --skip-preflight-checks
+   39  history
+   40   1  cd /etc/yum.repos.d
+   41      2  vi kubernetes.repo
+   42      3  yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+   43      4  systemctl enable kubelet
+   44      5  systemctl start kubelet
+   45      6  unset http_proxy
+   46      7  unset https_proxy
+   47      8  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+   48      9  yum install docker
+   49     10  yum install docker.io
+   50     11  sudo yum -y install docker-ee
+   51     12  sudo sh -c 'echo "https://store.docker.com/my-content" > /etc/yum/vars/dockerurl'
+   52     13  sudo sh -c 'echo "7.3" > /etc/yum/vars/dockerosversion'
+   53     14  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+   54     15  sudo yum-config-manager --enable rhel-7-server-extras-rpms
+   55     16  sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+   56     17  sudo yum-config-manager \--add-repo \ https://store.docker.com/my-content /docker-ee.repo
+   57     18  sudo yum makecache fast
+   58     19   sudo yum -y install docker-ee
+   59     20  yum list docker-ee.x86_64  --showduplicates | sort -r
+   60     21  sudo yum -y install docker-ee-7.3
+   61     22  yum install docker
+   62     23  service docker start
+   63     24  docker images
+   64     25  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+   65     26  systemctl enable docker.service
+   66     27  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+   67     28  vi /etc/sysctl.conf
+   68     29  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+   69     30  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080 --skip-preflight-checks
+   70     31  vi /etc/sysctl.conf
+   71     32  cd /etc//systemd/system/kubelet.service.d
+   72     33  ls
+   73     34  vi 10-kubeadm.conf
+   74     35  kubeadm reset
+   75     36  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080 --skip-preflight-checks
+   76     37  systemctl daemon-reload
+   77     38  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080 --skip-preflight-checks
+   78     39  history
+   79  kubectl get nodes
+   80  cd
+   81  kubectl get nodes
+   82  'kubectl get nodes
+   83  kubectl get nodes
+   84  sudo su ec2-user
+   85  kubectl get nodes
+   86  sudo cp /etc/kubernetes/admin.conf $HOME/
+   87  sudo chown $(id -u):$(id -g) $HOME/admin.conf
+   88  export KUBECONFIG=$HOME/admin.conf
+   89  kubectl get nodes
+   90  kubectl get nodes
+   91  curl https://172-30-3-121/ui
+   92  curl https://172-30-3-121
+   93  kubectl run eureka-server --image=techmid/eureka-server  --port=8761
+   94  kubectl expose deployment eureka-server --type=LoadBalancer --name=eureka-server
+   95  kubectl describe services eureka-server
+   96  curl http://10.104.149.116:8761
+   97  curl http://10.104.149.116:31152
+   98  kubectl get services eureka-server
+   99  kubectl get pods
+  100  kubectl get pods
+  101  kubectl get pods
+  102  kubectl get pods
+  103  kubectl run hello-world --replicas=2 --labels="run=load-balancer-example" --image=gcr.io/google-samples/node-hello:1.0  --port=8080
+  104  kubectl expose deployment hello-world --type=LoadBalancer --name=my-service
+  105  kubectl get services my-service
+  106  kubectl get services my-service
+  107  kubectl get services my-service
+  108  kubectl get services my-service
+  109  kubectl get services eureka-server
+  110  kubectl get services eureka-server
+  111  kubectl get services eureka-server
+  112  kubectl get services eureka-server
+  113  kubectl get services eureka-server
+  114  kubectl get services eureka-server
+  115   kubectl get services eureka-server
+  116   kubectl get services eureka-server
+  117   kubectl get services eureka-server
+  118   kubectl get services my-service
+  119  history
+  120   kubectl get services my-service
+  121  kubectl get pods
+  122   kubectl get services my-service
+  123   kubectl get services my-service
+  124   kubectl get services my-service
+  125   kubectl get services my-service
+  126   kubectl get services my-service
+  127   kubectl get services my-service
+  128  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+  129  cd  /proc/sys/net/bridge/
+  130  ls
+  131  cd bridge-nf-call-iptables
+  132  vi bridge-nf-call-iptables
+  133  vi bridge-nf-call-iptables
+  134  sudo su ec2-user
+  135  clear
+  136  vi  bridge-nf-call-iptables
+  137  vi  -f bridge-nf-call-iptables
+  138  cd /var/log/
+  139  ls
+  140  cd messages
+  141  ls
+  142  vi messages
+  143  host -i
+  144  hostname -i
+  145  tail -f /var/log/messages
+  146  tail -f /var/log/messages
+  147  kubeadm reset
+  148  systemctl daemon-reload
+  149  kubeadm init --apiserver-advertise-address=172.30.3.91 --apiserver-bind-port=8080 --skip-preflight-checks
+  150    sudo cp /etc/kubernetes/admin.conf $HOME/
+  151  sudo chown $(id -u):$(id -g) $HOME/admin.conf
+  152  export KUBECONFIG=$HOME/admin.conf
+  153  kubectl get nodes
+  154  kubectl run eureka-server --image=techmid/eureka-server --port=8761
+  155  kubectl expose deployment eureka-server --type=LoadBalancer --name=eureka-server
+  156  kubectl get pods
+  157  history
+  158  cd /etc//systemd/system/kubelet.service.d
+  159  ls
+  160  vi 10-kubeadm.conf
+  161  vi 10-kubeadm.conf
+  162   vi /etc/sysctl.conf
+  163  wget https://git.io/weave-kube-1.6
+  164  yum install wget
+  165  wget https://git.io/weave-kube-1.6
+  166  wget https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+  167  kubectl proxy --api-prefix=/ --address='172.30.391' --accept-hosts='172.30.391' --port=7080 &
+  168  kubectl get pods
+  169  docker images
+  170  kubectl run crudopeartions --image=techmid/crudopeartions --port=8089
+  171  kubectl get deploy
+  172  kubectl get pod
+  173  kubectl describe pods crudopeartions-2387220335-3nwdv
+  174  kubectl get nodes
+  175  kubectl describe nodes ip-172-30-3-91.ec2.internal
+  176  kubectl get nodes
+  177  kubectl cluster-info
+  178  kubectl get nodes
+  179  kubectl get nodes
+  180  docker --version
+  181  kubectl taint nodes --all node-role.kubernetes.io/master-
+  182  kubectl get nodes
+  183  kubectl get pods
+  184  docker ps
+  185  kubectl get pods
+  186  kubectl describe pods crudopeartions-2387220335-3nwdv
+  187  docker pull techmid/crudoperations
+  188  kubectl get pods
+  189  kubectl get deploy
+  190  kubectl delete deply
+  191  kubectl delete deploy crudoperations
+  192  kubectl delete deploy crudopeartions
+  193  kubectl run crudoperations --image=techmid/crudoperations --port=8089
+  194  kubectl get pods
+  195  kubectl expose deployment crudoperations  --type=LoadBalancer --name=crud
+  196   kubectl get services
+  197   kubectl get services
+  198  history
+
+
+=====
+chat
+from Amandeep Singh to Everyone:
+ps -ef | grep kubelet
+from Amandeep Singh to Everyone:
+kubectl taint nodes --all node-role.kubernetes.io/master-
+from Amandeep Singh to Everyone:
+I have disconnected somehow
+from Amandeep Singh to Everyone:
+but i think this session , we have done the desired part of running pods
+from Amandeep Singh to Everyone:
+you can check the services using kubectl get services
+from Amandeep Singh to Everyone:
+and then see the port number where it would be accessible
+
+----
+node
+
+
+1  yum install kubeadm
+    2  yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+    3  yum update
+    4  yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+    5  cd /etc/yum.repos.d
+    6  vi kubernetes.repo
+    7  yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+    8   systemctl enable kubelet
+    9  systemctl start kubelet
+   10  unset http_proxy
+   11  unset https_proxy
+   12  useradd enabler
+   13  sudo su enabler
+   14  useradd enabler
+   15  passwd enabler
+   16  useradd -d /home/enabler enabler
+   17  cat /etc/passwd | grep enabler
+   18  usermod -aG enabler enabler
+   19  sudo su - enabler
+   20  kubeadm join --token 463d67.92b9a9ebbcd12946 172.30.3.121:8080
+   21  sudo sh -c 'echo "https://store.docker.com/my-content" > /etc/yum/vars/dockerurl'
+   22  sudo sh -c 'echo "7.3" > /etc/yum/vars/dockerosversion'
+   23  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+   24  sudo yum-config-manager --enable rhel-7-server-extras-rpms
+   25  sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+   26  sudo yum-config-manager \--add-repo \ https://store.docker.com/my-content /docker-ee.repo
+   27  yum install docker
+   28  docker images
+   29  service docker start
+   30  systemctl start  docker.service
+   31  kubeadm join --token 463d67.92b9a9ebbcd12946 172.30.3.121:8080
+   32  kubeadm join --token 463d67.92b9a9ebbcd12946 172.30.3.121:8080 --skip-preflight-checks
+   33  sudo cp /etc/kubernetes/admin.conf $HOME/
+   34  history
+   35   kubectl get services eureka-server
+   36  kubeadm join --token d5ed07.d869e9f9bb0b2721 172.30.3.91:8080
+   37  kubeadm join --token d5ed07.d869e9f9bb0b2721 172.30.3.91:8080 --skip-preflight-checks
+   38  history
+   39  clear
+   40  history
+   41   kubeadm join --token d5ed07.d869e9f9bb0b2721 172.30.3.91:8080
+   42  docker ps
+   43  service docker start
+   44  docker ps
+   45   kubeadm join --token d5ed07.d869e9f9bb0b2721 172.30.3.91:8080
+   46  systemctl enable docker.service
+   47   kubeadm join --token d5ed07.d869e9f9bb0b2721 172.30.3.91:8080
+   48  kubeadm rest
+   49  kubeadm reset
+   50   kubeadm join --token d5ed07.d869e9f9bb0b2721 172.30.3.91:8080
+   51  docker ps
+   52  ps -ef | grep kubelet
+   53  docker ps -a
+   54  docker --version
+   55  clear
+   56  hsitory
+   57  history

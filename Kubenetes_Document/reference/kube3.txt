@@ -1,0 +1,67 @@
+ 1  cd /etc/yum.repos.d
+    2  vi kubernetes.repo
+    3  yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+    4  systemctl enable kubelet
+    5  systemctl start kubelet
+    6  unset http_proxy
+    7  unset https_proxy
+    8  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+    9  yum install docker
+   10  yum install docker.io
+   11  sudo yum -y install docker-ee
+   12  sudo sh -c 'echo "https://store.docker.com/my-content" > /etc/yum/vars/dockerurl'
+   13  sudo sh -c 'echo "7.3" > /etc/yum/vars/dockerosversion'
+   14  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+   15  sudo yum-config-manager --enable rhel-7-server-extras-rpms
+   16  sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+   17  sudo yum-config-manager \--add-repo \ https://store.docker.com/my-content /docker-ee.repo
+   18  sudo yum makecache fast
+   19   sudo yum -y install docker-ee
+   20  yum list docker-ee.x86_64  --showduplicates | sort -r
+   21  sudo yum -y install docker-ee-7.3
+   22  yum install docker
+   23  service docker start
+   24  docker images
+   25  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+   26  systemctl enable docker.service
+   27  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+   28  vi /etc/sysctl.conf
+   29  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080
+   30  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080 --skip-preflight-checks
+   31  vi /etc/sysctl.conf
+   32  cd /etc//systemd/system/kubelet.service.d
+   33  ls
+   34  vi 10-kubeadm.conf
+   35  kubeadm reset
+   36  kubeadm init --apiserver-advertise-address=172.30.3.121 --apiserver-bind-port=8080 --skip-preflight-checks
+   37  systemctl daemon-reload
+   38  kubeadm init --apiserver-advertise-address=172.30.3.69 --apiserver-bind-port=8080 --skip-preflight-checks
+   39  history
+
+
+kubectl get nodes
+    2  sudo cp /etc/kubernetes/admin.conf $HOME/
+    3  sudo chown $(id -u):$(id -g) $HOME/admin.conf
+    4  export KUBECONFIG=$HOME/admin.conf
+    5  kubectl get nodes
+
+
+
+node
+
+
+kubeadm join --token 463d67.92b9a9ebbcd12946 172.30.3.121:8080
+    2  sudo sh -c 'echo "https://store.docker.com/my-content" > /etc/yum/vars/dockerurl'
+    3  sudo sh -c 'echo "7.3" > /etc/yum/vars/dockerosversion'
+    4  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+    5  sudo yum-config-manager --enable rhel-7-server-extras-rpms
+    6  sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+    7  sudo yum-config-manager \--add-repo \ https://store.docker.com/my-content /docker-ee.repo
+    8  yum install docker
+    9  docker images
+   10  service docker start
+   11  systemctl start  docker.service
+   12  kubeadm join --token 463d67.92b9a9ebbcd12946 172.30.3.121:8080
+   13  kubeadm join --token 463d67.92b9a9ebbcd12946 172.30.3.121:8080 --skip-preflight-checks
+   14  sudo cp /etc/kubernetes/admin.conf $HOME/
+   15  history

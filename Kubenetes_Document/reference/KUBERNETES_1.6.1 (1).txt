@@ -1,0 +1,134 @@
+INSTALLING KUBERNETES 
+
+
+        1.1) cd /etc/yum.repos.d
+        1.2) vi kubernetes.repo ( save the file ) 
+		[kubernetes]
+		name=Kubernetes
+		baseurl=http://yum.kubernetes.io/repos/kubernetes-el7-x86_64
+		enabled=1
+		gpgcheck=1
+		repo_gpgcheck=1
+		gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+       		       https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+   
+        2.1) yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+ 
+        2.2) systemctl enable kubelet
+             systemctl start kubelet
+ 
+        2.3) UNSET PROXY IF ANY 
+             unset http_proxy
+             unset https_proxy
+  
+        2.4) ON THE MASTER NODE ( IN MY CASE zlt15174.vci.att.com) 
+             kubeadm init --apiserver-advertise-address=<your MasterIp > --apiserver-bind-port=8080
+
+
+OUTPUT : 
+[root@zlt15174 yum.repos.d]# kubeadm init --apiserver-advertise-address=135.167.156.51 --apiserver-bind-port=8080
+[kubeadm] WARNING: kubeadm is in beta, please do not use it for production clusters.
+[init] Using Kubernetes version: v1.6.0
+[init] Using Authorization mode: RBAC
+[preflight] Running pre-flight checks
+[preflight] Starting the kubelet service
+[certificates] Generated CA certificate and key.
+[certificates] Generated API server certificate and key.
+[certificates] API Server serving cert is signed for DNS names [zlt15174 kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 135.167.156.51]
+[certificates] Generated API server kubelet client certificate and key.
+[certificates] Generated service account token signing key and public key.
+[certificates] Generated front-proxy CA certificate and key.
+[certificates] Generated front-proxy client certificate and key.
+[certificates] Valid certificates and keys now exist in "/etc/kubernetes/pki"
+[kubeconfig] Wrote KubeConfig file to disk: "/etc/kubernetes/admin.conf"
+[kubeconfig] Wrote KubeConfig file to disk: "/etc/kubernetes/kubelet.conf"
+[kubeconfig] Wrote KubeConfig file to disk: "/etc/kubernetes/controller-manager.conf"
+[kubeconfig] Wrote KubeConfig file to disk: "/etc/kubernetes/scheduler.conf"
+[apiclient] Created API client, waiting for the control plane to become ready
+[apiclient] All control plane components are healthy after 15.044053 seconds
+[apiclient] Waiting for at least one node to register
+[apiclient] First node has registered after 5.003322 seconds
+[token] Using token: 1b9d68.1bb44aba3de83330
+[apiconfig] Created RBAC rules
+[addons] Created essential addon: kube-proxy
+[addons] Created essential addon: kube-dns
+
+Your Kubernetes master has initialized successfully!
+
+To start using your cluster, you need to run (as a regular user):
+
+  sudo cp /etc/kubernetes/admin.conf $HOME/
+  sudo chown $(id -u):$(id -g) $HOME/admin.conf
+  export KUBECONFIG=$HOME/admin.conf
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  http://kubernetes.io/docs/admin/addons/
+
+You can now join any number of machines by running the following on each node
+as root:
+
+  kubeadm join --token 1b9d68.1bb44aba3de83330 135.167.156.51:8080
+
+[root@zlt15174 yum.repos.d]#
+
+
+
+
+        2.3) WITH ROOT USER : 
+
+             sudo cp /etc/kubernetes/admin.conf /home/enabler ( our application user ) 
+             sudo chown 250230:134 /home/enabler/admin.conf   ( from enabler account id -u=250230 and id -g=134)
+
+             NOW WITH ENBALER USER 
+             export KUBECONFIG=$HOME/admin.conf           
+   
+        2.4) IN KUBERNETES 1.6.1 and ahead only kubeadm functionality is controlled by root user , rest all can be delegated to enabler user.
+          
+             LOGIN AS ENABLER USER.
+
+        3.1)  ON A DIFFRENT PUTTY TERMINAL LOGIN AS ENABLER USER AND SET PROXY  
+              export http_proxy=http://one.proxy.att.com:8080/
+              export https_proxy=http://one.proxy.att.com:8080/
+ 
+        3.2)  wget https://git.io/weave-kube-1.6
+              wget https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+
+       
+        3.3)  kubectl apply -f weave-kube-1.6
+              kubectl apply -f kubernetes-dashboard.yaml  // THIS HAS TO BE DONE ON SESSION WHICH DOESNOT HAS PROXY SET.
+
+        3.4)  NOW 
+              kubectl proxy --api-prefix=/ --address='135.167.156.51' --accept-hosts='135.167.156.51' --port=7080 &
+
+        3.5)  kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
+
+        3.6)  ACCESS ON BROWSER:
+              http://135.167.156.51:7080/ui
+
+https://github.com/kubernetes/dashboard/issues/1800 
+
+
+KUBERNETES MONITORING USING CADVISOR : 
+
+sudo docker run  --volume=/:/rootfs:ro --volume=/var/run:/var/run:rw  --volume=/sys:/sys:ro  --volume=/var/lib/docker/:/var/lib/docker:ro --publish=6080:8080 --detach=true --name=cadvisor1 google/cadvisor:latest
+
+
+//WORK IN PROGRESS FOR PROMETHEUS 
+
+INSTALL DOCKER COMPOSE:
+
+curl -L https://github.com/docker/compose/releases/download/1.12.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+export PATH=$PATH:/usr/local/bin
+
+create namespace first.
+
+kubectl create namespace <your AAF NAMESPACE>
+
+//WILL VERIFY THE BELOW COMMANDS FORM AMAN..
+kubectl create secret docker-registry regsecret --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+kubectl get secret regsecret --output=yaml
+kubectl config set-context $(kubectl config current-context) --namespace=com-att-det-ci
+kubectl config view | grep namespace:

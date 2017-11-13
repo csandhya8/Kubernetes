@@ -1,0 +1,87 @@
+ 
+24/7
+
+kubeadm join --token 5aa3fd.729e77fc27d80237 172.30.3.207:8080
+
+
+----master
+	cd /etc/yum.repos.d
+    2  vi kubernetes.repo
+    3  yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+    4  systemctl enable kubelet
+    5  systemctl start kubelet
+    6  unset http_proxy
+    7  nset https_proxy
+    8  unset https_proxy
+    9  sudo yum install policycoreutils-python
+   10  yum install wget
+   11  wget http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+   12  sudo rpm -i container-selinux-2.9-4.el7.noarch.rpm
+   13  sudo yum install -y yum-utils
+   14  sudo yum install -y device-mapper-persistent-data lvm2
+   15  sudo yum-config-manager --enable rhel-7-server-extras-rpms
+   16  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   17  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   18  sudo yum makecache fast
+   19  sudo yum -y install docker-ce
+   20  sudo systemctl start docker
+   21  DOCKER PS
+   22  docker ps
+    kubeadm init --apiserver-advertise-address=54.157.217.29 --apiserver-bind-port=8080
+
+	sudo cp /etc/kubernetes/admin.conf $HOME/
+    4  sudo chown $(id -u):$(id -g) $HOME/admin.conf
+    5  export KUBECONFIG=$HOME/admin.conf
+    6  kubectl get nodes
+    7  kubectl get nodes
+    8  kubectl get nodes
+    9  kubectl get nodes
+   10  wget https://git.io/weave-kube-1.6
+   11  wget https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+   12  kubectl apply -f weave-kube-1.6
+   13  kubectl apply -f kubernetes-dashboard.yaml
+   14  kubectl proxy --api-prefix=/ --address='172.30.3.207' --accept-hosts='172.30.3.207' --port=7080 &
+   15  kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
+   16  kubectl get nodes
+   17  kubectl run eureka-server --image=techmid/eureka-server --port=8761
+   18  kubectl expose deployment eureka-server --name=eureka-server
+   19  kubectl get pods
+   20  kubectl describe service eureka-server
+   21   kubectl get services eureka-server
+   22  kubectl describe services eureka-server
+   23  kubectl get pods --output=wide
+   24  kubectl get pods
+   25  kubectl get nodes
+   26  history
+
+
+
+--nodes
+ 	cd /etc/yum.repos.d
+    2  vi kubernetes.repo
+    3  yum install -y kubelet-1.6.1-0 kubeadm-1.6.1-0 kubectl-1.6.1-0 kubernetes-cni
+    4  systemctl enable kubelet
+    5  systemctl start kubelet
+    6  unset http_proxy
+    7  unset https_proxy
+    8  unset https_proxy
+    9  sudo yum install policycoreutils-python
+   10  yum install wget
+   11  wget http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+   12  sudo rpm -i container-selinux-2.9-4.el7.noarch.rpm
+   13  sudo yum install -y yum-utils
+   14  sudo yum install -y device-mapper-persistent-data lvm2
+   15  sudo yum-config-manager --enable rhel-7-server-extras-rpms
+   16  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   17  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   18  sudo yum makecache fast
+   19  sudo yum -y install docker-ce
+   20  sudo systemctl start docker
+   21  DOCKER PS
+   22  docker ps
+   23  kubeadm join --token 5aa3fd.729e77fc27d80237 172.30.3.207:8080
+
+
+
+wget https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+ version change

@@ -1,0 +1,235 @@
+ 1  aptget install
+    2  apt-get install docker
+    3  docker start
+    4  apt-get install docker
+    5  docker ps
+    6  apt-get docker install
+    7  apt-get install docker
+    8  service docker start
+    9  docker start
+   10  apt-get -y install docker.io
+   11  ln -sf /usr/bin/docker.io /usr/local/bin/docker
+   12  sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+   13  service docker.io restart
+   14  docker version
+   15  apt-get install docker
+   16  docker pull ubuntu
+   17  apt-get install yum
+   18  apt-get wget
+   19  apt-get install wget
+   20  sudo yum install policycoreutils-python
+   21  wget http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+   22  sudo rpm -i container-selinux-2.9-4.el7.noarch.rpm
+   23  sudo yum install -y yum-utils
+   24  sudo yum install -y device-mapper-persistent-data lvm2
+   25  sudo yum-config-manager --enable rhel-7-server-extras-rpms
+   26  sudo yum install policycoreutils-python
+   27  wget http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+   28  yum install -y yum-utils
+   29  rpm -i container-selinux-2.9-4.el7.noarch.rpm
+   30  sudo yum -y install docker-ce
+   31  ls
+   32  rm -rf container-selinux-2.9-4.el7.noarch.rpm
+   33  rm -rf container-selinux-2.9-4.el7.noarch.rpm.1
+   34  ls
+   35  sudo apt-get install docker-ce
+   36  yum install docker
+   37  apt-get install docker
+   38  sudo apt-get install docker-ee
+   39  uname -r
+   40  apt-get update
+   41  apt-get -y upgrade
+   42  apt-get -y install docker.io
+   43  ln -sf /usr/bin/docker.io /usr/local/bin/docker
+   44  sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+   45  sed -i '$acomplete -F _docker docker' /etc/docker.io
+   46  service docker.io status
+   47  service docker status
+   48  docker ps
+   49  wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-8u141-linux-x64.tar.gz"
+   50  tar xzf jdk-8u141-linux-x64.tar.gz
+   51  ls
+   52  export JAVA_HOME=/home/ubuntu/jdk1.8.0_141/
+   53  export PATH=$PATH:/home/ubuntu/jdk1.8.0_141/bin/
+   54  java -version
+   55  wget http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+   56  sudo tar xzf apache-maven-3.3.9-bin.tar.gz
+   57  ls
+   58  export M2_HOME=/home/ubuntu/apache-maven-3.3.9
+   59  export PATH=$PATH:/home/ubuntu/apache-maven-3.3.9/bin/
+   60  maven -version
+   61  clear
+   62  apt-get update
+   63  apt-get dist-upgrade -y -qq
+   64  apt-get install -y -qq apache2
+   65  apt-get a2enmod proxy proxy_http proxy_ajp rewrite deflate headers proxy_connect proxy_html lbmethod_byrequests
+   66  apt-get proxy proxy_http proxy_ajp rewrite deflate headers proxy_connect proxy_html lbmethod_byrequests
+   67  cd kubernetes_apache/
+   68  cd microservice-kubernetes-master/microservice-kubernetes-demo/microservice-kubernetes-demo
+   69  cd microservice-kubernetes-master/microservice-kubernetes-demo/microservice-kubernetes-demo-
+   70  cd microservice-kubernetes-master/microservice-kubernetes-demo/
+   71  ls
+   72  cd microservice-kubernetes-demo-catalog/
+   73  ls
+   74  maven clean install
+   75  mvn clean install
+   76  cd ..
+   77  cd microservice-kubernetes-master/microservice-kubernetes-demo/apache/
+   78  docker login
+   79  docker build -t apache .
+   80  vi Dockerfile
+   81  docker build -t apache .
+   82  vi Dockerfile
+   83  docker build -t apache .
+   84  docker tag apache techmroot/apache
+   85  docker push techmroot/apache
+   86  cd ..
+   87  cd microservice-kubernetes-demo-catalog/
+   88  mvn install
+   89  mvn install -DskipTests
+   90  ls
+   91  cd target/
+   92  ls
+   93  vi Dockerfile
+   94  cd ..
+   95  vi Dockerfile
+   96  cd target/
+   97  vi Dockerfile
+   98  docker build -t microservice-kubernetes-demo-catalog .
+   99  cd ..
+  100  docker build -t microservice-kubernetes-demo-catalog .
+  101  docker images
+  102  docker tag microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog
+  103  docker push techmroot/microservice-kubernetes-demo-catalog
+  104  vi Dockerfile
+  105  ls
+  106  vi src/main/java/com/ewolff/microservice/catalog/CatalogApp.java
+  107  mvn install -DskipTests
+  108  cd ..
+  109  cd microservice-kubernetes-demo-
+  110  cd microservice-kubernetes-demo-catalog/
+  111  mvn install -DskipTests
+  112  spring-boot run
+  113  mvn
+  114  ls
+  115  mvn clean install
+  116  mvn clean install -DskipTests
+  117  docker images
+  118  docker build -t microservice-kubernetes-demo-catalog .
+  119  docker images
+  120  docker tag microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog
+  121  docker tag microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog:latest
+  122  docker tag -f microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog:latest
+  123  docker push techmroot/microservice-kubernetes-demo-catalog:latest
+  124  mvn clean install -DskipTests
+  125  docker build -t microservice-kubernetes-demo-catalog .
+  126  docker tag  microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog:latest
+  127  docker tag  microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog
+  128  docker tag -f microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog:latest
+  129  docker push -f techmroot/microservice-kubernetes-demo-catalog:latest
+  130  docker push -f techmroot/microservice-kubernetes-demo-catalog
+  131  docker tag  microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog:latest
+  132  docker tag -f microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog:latest
+  133  docker push -f techmroot/microservice-kubernetes-demo-catalog:latest
+  134  docker push -f techmroot/microservice-kubernetes-demo-catalog
+  135  docker push techmroot/microservice-kubernetes-demo-catalog
+  136  mvn clean install -DskipTests
+  137  vi Dockerfile
+  138  docker build -t microservice-kubernetes-demo-catalog .
+  139  docker tag microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog
+  140  docker tag -f  microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog
+  141  docker push techmroot/microservice-kubernetes-demo-catalog
+  142  mvn clean install -DskipTests
+  143  docker build -t microservice-kubernetes-demo-catalog .
+  144  docker tag -f  microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog
+  145  docker push techmroot/microservice-kubernetes-demo-catalog
+  146  mvn clean install -DskipTests
+  147  docker build -t microservice-kubernetes-demo-catalog .
+  148  docker tag -f  microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog
+  149  docker push techmroot/microservice-kubernetes-demo-catalog
+  150  mvn clean install -DskipTests
+  151  docker build -t microservice-kubernetes-demo-catalog .
+  152  docker tag -f  microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog
+  153  docker tag -f  microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog:latest
+  154  docker push techmroot/microservice-kubernetes-demo-catalog:latest
+  155  cd ..
+  156  ls
+  157  rm -rf microservice-kubernetes-master/
+  158  ls
+  159  cd microservice-kubernetes-master/microservice-kubernetes-demo/apache/
+  160  docker build -t apache .
+  161  docker images
+  162  docker build -t apache .
+  163  docker images
+  164  docker images -a
+  165  docker images
+  166  docker rmi a3a44117a834 a3a44117a834 628f96dc9aa8 cda00f4bac48 845a449e9f63 2ffce9fef5f0 194b686e3a69 356a78d0eb61 a3d62219dd4a a3d62219dd4a 006a754e0bed 37a9c4a8276c
+  167  docker rmi -f  a3a44117a834 a3a44117a834 628f96dc9aa8 cda00f4bac48 845a449e9f63 2ffce9fef5f0 194b686e3a69 356a78d0eb61 a3d62219dd4a a3d62219dd4a 006a754e0bed 37a9c4a8276c
+  168  docker images
+  169  docker rmi a3a44117a834
+  170  docker rmi -f a3a44117a834
+  171  docker rmi -f a3d62219dd4a
+  172  docker rmi -f a3a44117a834:tag
+  173  docker rmi a3a44117a834
+  174  docker build -t apache .
+  175  docker images
+  176  docker rm $(docker ps -a -q)
+  177  docker images
+  178  cd ..
+  179  cd microservice-kubernetes-demo-catalog/
+  180  mvn clean install -DskipTests
+  181  docker build -t microservice-kubernetes-demo-catalog .
+  182  docker images
+  183  docker tag -f microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog:latest
+  184  docker -f push techmroot/microservice-kubernetes-demo-catalog:latest
+  185  docker push techmroot/microservice-kubernetes-demo-catalog:latest
+  186  docker images
+  187  cd ..
+  188  cd microservice-kubernetes-demo-customer
+  189  mvn clean install-DskipTests
+  190  mvn clean install -DskipTests
+  191  vi Dockerfile
+  192  docker build -t microservice-kubernetes-demo-customer .
+  193  dockeimages
+  194  docker images
+  195  docker tag microservice-kubernetes-demo-customer techmroot/microservice-kubernetes-demo-customer:latest
+  196  docker tag techmroot/microservice-kubernetes-demo-customer:latest
+  197  docker push techmroot/microservice-kubernetes-demo-customer:latest
+  198  cd ..
+  199  cd microservice-kubernetes-demo-catalog/
+  200  mvn clean install -DskipTests
+  201  docker build -t microservice-kubernetes-demo-catalog .
+  202  docker images
+  203  docker tag microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog:latest
+  204  docker tag -f microservice-kubernetes-demo-catalog techmroot/microservice-kubernetes-demo-catalog:latest
+  205  docker push techmroot/microservice-kubernetes-demo-catalog:latest
+  206  cd ..
+  207  cd microservice-kubernetes-demo-customer/
+  208  mvn clean install -Dskiptests
+  209  mvn clean install -DskipTests
+  210  docker images
+  211  docekr build -t microservice-kubernetes-demo-customer .
+  212  docker build -t microservice-kubernetes-demo-customer .
+  213  docker images
+  214  docker tag microservice-kubernetes-demo-customer techmroot/microservice-kubernetes-demo-customer:latest
+  215  docker tag -f microservice-kubernetes-demo-customer techmroot/microservice-kubernetes-demo-customer:latest
+  216  docker push -f techmroot/microservice-kubernetes-demo-customer:latest
+  217  docker push techmroot/microservice-kubernetes-demo-customer:latest
+  218  mvn clean install -DskipTests
+  219  docker build -t microservice-kubernetes-demo-customer .
+  220  docker tag -f microservice-kubernetes-demo-customer techmroot/microservice-kubernetes-demo-customer:latest
+  221  docker push -f techmroot/microservice-kubernetes-demo-customer:latest
+  222  docker push techmroot/microservice-kubernetes-demo-customer:latest
+  223  mvn clean install -DskipTests
+  224  docker build -t microservice-kubernetes-demo-customer .
+  225  docker tag -f microservice-kubernetes-demo-customer techmroot/microservice-kubernetes-demo-customer:latest
+  226  docker push techmroot/microservice-kubernetes-demo-customer:latest
+  227  cd ..
+  228  cd microservice-kubernetes-demo-order/
+  229  mvn clean install -DskipTests
+  230  docker images
+  231  docker build -t microservice-kubernetes-demo-order .
+  232  docker images
+  233  docker tag microservice-kubernetes-demo-order techmroot/microservice-kubernetes-demo-order:latest
+  234  docker push techmroot/microservice-kubernetes-demo-order:latest
+  235  history
